@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="CSS/Pagina1.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    
+    <div class="menu">
+      <div class="marco-externo">
+        <section id="Contenedor-izquierdo"> 
+          
+          <a href="Inicio.html" target="contenido">
+            <img class="logo" src="IMAGENES/Logo-removebg-preview.png" alt="Logo Obsidian Eclipse Code">
+          </a>
+
+          <a href="Inicio.html" target="contenido">
+            <section class="Contenedor-interior">Inicio</section>
+          </a>
+
+          <a href="MisionVision.html" target="contenido">
+            <section class="Contenedor-interior">Misión y Visión</section>
+          </a>
+
+          <a href="Servicios.html" target="contenido">
+            <section class="Contenedor-interior">Servicios</section>
+          </a>
+
+          <a href="Objetivos.html" target="contenido">
+            <section class="Contenedor-interior">Objetivos</section>
+          </a>
+          
+        </section>
+      </div>
+    </div>
+    
+    <iframe
+      name="contenido"
+      src="Inicio.html"
+      style="border: none;"
+      scrolling="no"
+      id="iframe-contenido"
+    >
+    </iframe>
+
+  </div>
+
+  <script>
+    function ajustarIframe() {
+        const iframe = document.getElementById('iframe-contenido');
+        // Usa un bloque try-catch por si el contenido es de otro dominio
+        try {
+            // Ajusta la altura del iframe al contenido de la página cargada
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        } catch (e) {
+            console.warn('No se pudo acceder al contenido del iframe para ajustar la altura. Usando altura de la ventana (100vh).', e);
+            iframe.style.height = '100vh';
+        }
+    }
+
+    // Ajusta al cargar la página
+    document.getElementById('iframe-contenido').addEventListener('load', ajustarIframe);
+  </script>
+
+</body>
+</html>
